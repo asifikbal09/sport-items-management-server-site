@@ -1,5 +1,5 @@
 import { z } from 'zod';
-
+import { ConditionsArray, SizeArray } from './product.constant';
 const createProductValidationSchema = z.object({
   body: z.object({
     name: z.string({ required_error: 'Name is required.' }),
@@ -19,9 +19,9 @@ const updateProductValidationSchema = z.object({
     quantity: z.number({ required_error: 'Price is required.' }),
     types: z.string(),
     brand: z.string(),
-    size: z.enum(['small', 'medium', 'large']),
+    size: z.enum(SizeArray as [string, ...[string]]),
     color: z.string(),
-    condition: z.enum(['new', 'used']),
+    condition: z.enum(ConditionsArray as [string, ...[string]]),
   }),
 });
 

@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { TProduct } from './product.interface';
+import { ConditionsArray, SizeArray } from './product.constant';
 
 const productSchema = new Schema<TProduct>({
   name: {
@@ -23,14 +24,14 @@ const productSchema = new Schema<TProduct>({
   },
   size: {
     type: String,
-    enum: ['small', 'medium', 'large'],
+    enum: SizeArray,
   },
   color: {
     type: String,
   },
   condition: {
     type: String,
-    enum: ['new', 'used'],
+    enum: ConditionsArray,
     required: true,
   },
 });
