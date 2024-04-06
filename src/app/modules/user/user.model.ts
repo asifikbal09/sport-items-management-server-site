@@ -1,29 +1,47 @@
 import { Schema, model } from 'mongoose';
-import { IUser } from './user.interface';
+
 import bcrypt from 'bcrypt';
 import config from '../../config';
+import { roleEnum, statusEnum } from './user.constant';
+import { IUser } from './user.interface';
+
+/*
+export interface IUser {
+  email: string;
+  role: 'super-admin' | 'manager' | 'seller';
+  password: string;
+  needsPasswordChange: boolean;
+  status: 'active' | 'blocked';
+  isDeleted: boolean;
+}
+*/
 
 const userSchema = new Schema<IUser>(
   {
-    name: {
-      type: String,
-      required: true,
-    },
     email: {
       type: String,
       required: true,
+    },
+    role: {
+      type: String,
+      enum: roleEnum,
     },
     password: {
       type: String,
       required: true,
     },
-    age: {
-      type: Number,
-      required: true,
+    needsPasswordChange: {
+      type: Boolean,
+      default: true,
     },
-    role: {
+    status: {
       type: String,
-      default: 'manager',
+      enum: statusEnum,
+      default: 'active',
+    },
+    isDeleted: {
+      type: Boolean,
+      default: false,
     },
   },
   {

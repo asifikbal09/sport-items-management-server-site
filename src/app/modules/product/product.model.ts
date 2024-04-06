@@ -19,6 +19,14 @@ const productSchema = new Schema<TProduct>({
     type: String,
     required: true,
   },
+  branch:{
+    type:String,
+    required:true
+  },
+  material:{
+    type:String,
+    required:true
+  },
   brand: {
     type: String,
   },

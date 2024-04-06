@@ -12,6 +12,7 @@ const loginUser = async (payload: TLoginUser) => {
   }
 
   const jwtPayload = {
+    id:user._id,
     email: user.email,
     role: user.role,
   };
@@ -22,9 +23,15 @@ const loginUser = async (payload: TLoginUser) => {
     config.token_expiration_time
   )
 
+  const refreshToken = createToken(
+    jwtPayload,
+    config.refresh_token_secret,
+    config.refresh_token_expiration_time
+  )
 
 
-  return accessToken;
+
+  return {accessToken,refreshToken};
 };
 
 export const AuthServices = {

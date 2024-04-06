@@ -1,15 +1,16 @@
 /* eslint-disable no-unused-vars */
-import { Model } from "mongoose";
+import { Model } from 'mongoose';
 
 export interface IUser {
-  name: string;
   email: string;
-  role: string;
-  age: number;
+  role: "super-admin" | "manager" | "seller";
   password: string;
+  needsPasswordChange: boolean;
+  status: 'active' | 'blocked';
+  isDeleted: boolean;
 }
 
-export interface UserModel extends Model<IUser>{
+export interface UserModel extends Model<IUser> {
   isPasswordMatched(
     plainTextPassword: string,
     hashedPassword: string,
