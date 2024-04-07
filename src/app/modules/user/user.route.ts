@@ -2,6 +2,7 @@ import express from 'express';
 import { UserValidations } from './user.validation';
 import { UserControllers } from './user.controller';
 import validateRequest from '../../middlewares/validateRequest';
+import { ManagerValidations } from '../manager/manager.validation';
 
 const router = express.Router();
 
@@ -14,5 +15,11 @@ router.post(
 );
 
 router.get('/', UserControllers.getAllUser);
+
+router.post(
+  '/create-manager',
+  validateRequest(ManagerValidations.createManagerValidationSchema),
+  UserControllers.createManager,
+);
 
 export const UserRoutes = router;

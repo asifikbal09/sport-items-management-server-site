@@ -6,7 +6,7 @@ type TRole = {
 
 export const USER_ROLE: TRole = {
   SUPER_ADMIN: 'super-admin',
-  MANAGER: 'manager',
+  MANAGER: "manager",
   SELLER: 'seller',
 };
 

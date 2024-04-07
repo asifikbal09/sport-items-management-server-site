@@ -25,7 +25,23 @@ const getAllUser = catchAsync(async (req, res) => {
   });
 });
 
+const createManager=catchAsync(async(req,res)=>{
+
+  const {password,manager} =req.body;
+  console.log({password,manager})
+  const result = await UserServices.createManagerIntoDB(password,manager)
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Manager created successfully.',
+    data: result,
+  });
+
+})
+
 export const UserControllers = {
   createUser,
-  getAllUser
+  getAllUser,
+  createManager,
 };
