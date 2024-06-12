@@ -40,8 +40,24 @@ const createManager=catchAsync(async(req,res)=>{
 
 })
 
+const createSeller=catchAsync(async(req,res)=>{
+
+  const {password,manager} =req.body;
+  console.log({password,manager})
+  const result = await UserServices.createSellerIntoDB(password,manager)
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Seller created successfully.',
+    data: result,
+  });
+
+})
+
 export const UserControllers = {
   createUser,
   getAllUser,
   createManager,
+  createSeller
 };

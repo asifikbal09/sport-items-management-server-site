@@ -7,7 +7,7 @@ const createManagerValidationSchema = z.object({
     name: z.string({ required_error: 'Name is required.' }),
     email: z.string({ required_error: 'Email is required.' }),
     contactNo: z.string({ required_error: 'Contact number is required.' }),
-    branch: z.string({ required_error: 'Branch is required.' }),
+    branch: z.string().optional(),
     profileImg: z.string().optional(),
    })
   }),

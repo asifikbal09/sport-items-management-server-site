@@ -1,7 +1,8 @@
 import { Schema, model } from 'mongoose';
-import { IManager } from './manager.interface';
+import { ISeller } from './seller.interface';
 
-const managerSchema = new Schema<IManager>({
+
+const sellerSchema = new Schema<ISeller>({
   userId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
@@ -21,12 +22,9 @@ const managerSchema = new Schema<IManager>({
     type: String,
     required: true,
   },
-  branch: {
-    type: String,
-  },
   profileImg: {
     type: String,
   },
 });
 
-export const Manager = model<IManager>('manager', managerSchema);
+export const Seller = model<ISeller>('seller', sellerSchema);

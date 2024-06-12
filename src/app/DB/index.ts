@@ -3,17 +3,6 @@ import { USER_ROLE } from '../modules/user/user.constant';
 import { IUser } from '../modules/user/user.interface';
 import { User } from '../modules/user/user.model';
 
-/*
-export interface IUser {
-  email: string;
-  role: 'super-admin' | 'manager' | 'seller';
-  password: string;
-  needsPasswordChange: boolean;
-  status: 'active' | 'blocked';
-  isDeleted: boolean;
-}
-*/
-
 const superAdminData: IUser = {
   email: 'asifikbal662@gmail.com',
   role: 'super-admin',

@@ -6,6 +6,18 @@ const createBranchIntoDB = async (payload: TBranch) => {
   return result;
 };
 
+const getAllBranchFromDB = async () => {
+  const result = await Branch.find();
+  return result;
+};
+
+const getSingleBranchFromDB = async (id: string) => {
+  const result = await Branch.findById(id);
+  return result;
+};
+
 export const BranchServices = {
   createBranchIntoDB,
+  getAllBranchFromDB,
+  getSingleBranchFromDB,
 };
