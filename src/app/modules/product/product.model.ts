@@ -19,13 +19,14 @@ const productSchema = new Schema<TProduct>({
     type: String,
     required: true,
   },
-  branch:{
-    type:String,
-    required:true
+  branch: {
+    type: Schema.Types.ObjectId,
+    ref:"Branch",
+    required: true,
   },
-  material:{
-    type:String,
-    required:true
+  material: {
+    type: String,
+    required: true,
   },
   brand: {
     type: String,
@@ -36,6 +37,10 @@ const productSchema = new Schema<TProduct>({
   },
   color: {
     type: String,
+  },
+  productImg: {
+    type: String,
+    required: true,
   },
   condition: {
     type: String,

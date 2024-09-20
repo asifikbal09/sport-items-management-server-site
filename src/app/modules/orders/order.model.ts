@@ -5,7 +5,12 @@ const orderSchema = new Schema<TOrder>(
   {
     productId: {
       type: Schema.Types.ObjectId,
+      ref:"Product",
       required: true,
+    },
+    branch:{
+      type:Schema.Types.ObjectId,
+      ref:"Branch"
     },
     nameOfBuyer: {
       type: String,

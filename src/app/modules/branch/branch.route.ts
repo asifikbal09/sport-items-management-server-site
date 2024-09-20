@@ -13,4 +13,13 @@ router.post(
   BranchControllers.createBranch,
 );
 
+router.get(
+  "/",
+  BranchControllers.getAllBranch
+)
+router.get(
+  "/:branchId",
+  BranchControllers.getSingleBranch
+)
+
 export const BranchRoutes = router;
